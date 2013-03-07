@@ -1,0 +1,147 @@
+          <div class="container">
+      
+            <div class="row">
+              
+              
+              <div class="span8 offset2"> 
+                
+                
+                <div class="widget">
+                
+              <div class="widget-header">
+                <i class="icon-bookmark"></i>
+                <h3>Select An App To Edit</h3>
+              </div> <!-- /widget-header -->
+              
+              <div class="widget-content">
+                
+                <div class="shortcuts">
+                  <a href="javascript:;" class="shortcut">
+                    <i class="shortcut-icon"><img src="assets/stanford.png" alt="" width="100" height="75"></i>
+                    <span class="shortcut-label">iStanford Labs</span>
+                  </a>
+
+                </div> <!-- /shortcuts -->  
+              
+              </div> <!-- /widget-content -->
+              
+            </div> <!-- /widget -->
+
+               <div class="widget">
+                
+              <div class="widget-header">
+                <i class="icon-bookmark"></i>
+                <h3>Select Device<!-- , Orientation, and Page --></h3>
+              </div> <!-- /widget-header -->
+              
+              <div class="widget-content">
+                <div class="shortcuts">
+                  <a href="javascript:;" class="shortcut">
+                    <i class="shortcut-icon"><img src="assets/iphone.png" alt="" width="100" height="75"></i>
+                    <span class="shortcut-label">iPhone</span>
+                  </a>
+<!--                   <a href="javascript:;" class="shortcut">
+                    <i class="shortcut-icon"><img src="assets/iphone.png" alt="" width="100" height="75"></i>
+                    <span class="shortcut-label">Portrait</span>
+                  </a>
+                  <a href="javascript:;" class="shortcut">
+                    <i class="shortcut-icon"><img src="assets/iphone.png" alt="" width="100" height="75"></i>
+                    <span class="shortcut-label">Page 1</span>
+                  </a> -->
+
+                </div> <!-- /shortcuts -->    
+              </div> <!-- /widget-content -->
+              
+          </div> <!-- /widget -->
+
+                <div class="widget">
+                <br>
+                <%= link_to t('.new', :default => t("helpers.links.new")),
+                            new_mod_path,
+                            :class => 'btn btn-primary btn-large pull-right' %>
+<br>
+<br>
+<br>
+              <div class="widget-header">
+                <i class="icon-bookmark"></i>
+                <h3>Arrange Modules</h3>
+              </div> <!-- /widget-header -->
+              <div class="widget-content">
+                <!-- pagination code -->
+              <% if @mods.previous_page %>
+                <%= link_to "< Previous Page", params.merge(page: @mods.previous_page) %>
+              <% end %>
+	      <!--
+              Page <%= @mods.current_page %> of <%= @mods.total_pages %>
+	      -->
+              <% if @mods.next_page %>
+                <%= link_to "Next Page >", params.merge(page: @mods.next_page) %>
+              <% end %>
+
+<%
+
+pages = [ 1, 2,3,4,5,6 ]
+
+pages.each do|n|
+%>
+	      <div class="widget-content">
+	      <strong>Page <%= n %></strong>
+              <ul id="mods<%= n %>" data-update-url="<%= sort_mods_url %>">
+              <% @mods.each do |mod| %>
+		<% if mod.mod_page_number ==n %>
+                <li id="mod_<%= mod.id %>">
+                  <span class="handle"><img src="<%= mod.mod_tile_url %>" width="77px" height="77px"><br><%= mod.name %></span>
+		      </li>
+		      <% end %>
+              <% end %>
+              </ul>
+	      </div>
+	      
+<% end%>
+
+                <div class="widget">
+                
+              <div class="widget-header">
+                <i class="icon-bookmark"></i>
+                <h3>Change Log</h3>
+              </div> <!-- /widget-header -->
+              
+              <div class="widget-content">
+                <%- model_class = Mod -%>
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th><%= model_class.human_attribute_name(:name) %></th>
+                      <th><%= model_class.human_attribute_name(:mod_tile_url) %></th>
+                      <th><%= model_class.human_attribute_name(:created_at) %></th>
+                      <th><%= model_class.human_attribute_name(:updated_at) %></th>
+                      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% @mods.each do |mod| %>
+                      <tr>
+                        <td><%= mod.name %></td>
+                        <td><img class="handle" src="<%= mod.mod_tile_url %>" height="77" width="77"></td>
+                        <td><%=l mod.created_at %></td>
+                        <td><%=l mod.updated_at %></td>
+                        <td>
+                          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                                      edit_mod_path(mod), :class => 'btn btn-mini' %>
+                          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                                      mod_path(mod),
+                                      :method => :delete,
+                                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                                      :class => 'btn btn-mini btn-danger' %>
+                        </td>
+                      </tr>
+                    <% end %>
+                  </tbody>
+                </table>
+
+              </div> 
+          </div> <!-- /span8 offset2 -->
+          
+        </div> <!-- /row -->
+  
+      </div> <!-- /container -->

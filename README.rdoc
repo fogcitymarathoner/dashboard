@@ -1,0 +1,14 @@
+This app is not deployed on heroku
+
+"rails s" to run localhost on port :3000
+
+can be pushed to heroku with "heroku create", "git push heroku master", "heroku run rake db:migrate"
+
+
+
+useful commands:
+
+migrate database - heroku run rake db:migrate
+
+
+push to heroku after local changes - git push heroku master

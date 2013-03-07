@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MetaNeer Labs</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600" rel="stylesheet">
+	<link rel="shortcut icon" href="/assets/metaFavicon.ico" type="image/x-icon" />
+	<script src="/assets/jquery.toolbar.js"></script>
+	<link href="/assets/jquery.toolbar.css" rel="stylesheet" />
+</head>
+<body>
+
+<!-- 	These renders are in the 'views' folder -->
+	<%= render 'partials/navigation' %>
+		<center><a href="/"><img src="/assets/metaneer.png" alt="MetaNeer Labs Logo"></a><center>
+	<%= render 'partials/flashMessages' %><br>
+					<% if user_signed_in? %>
+					  Logged in as <strong><%= current_user.email %></strong>. |
+					  <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+					<% if current_user.admin? %>
+					  Logged in as <strong><%= current_user.email %></strong>. (ADMIN) |
+					  <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+					<% end %>
+					<% end %>
+					<br><br>
+		<%= yield %>
+	<%= render 'partials/footer' %>
+</body>
+</html>

@@ -1,0 +1,2 @@
+module BellayHelper
+end

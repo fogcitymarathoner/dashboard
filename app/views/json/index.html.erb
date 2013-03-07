@@ -1,0 +1,20 @@
+{
+   "request":"getApp",
+   "device_id":"1",
+   "app_name":"iStanford",
+   "page_array":[
+      {
+         "page_background_1":"http:\/\/www.api.metaneer.com\/MNLabs\/image\/iPhone001.png",
+         "page_background_2":"http:\/\/www.api.metaneer.com\/MNLabs\/image\/iPhone002_r.png",
+         "module_array":
+
+		<%= response = HTTParty.get('http://metaneerdashboard.herokuapp.com/mods.json')
+		puts response.body
+
+		response.each do |item|
+		  puts item
+		end %>
+
+      }
+   ]
+}

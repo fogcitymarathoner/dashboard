@@ -1,0 +1,7 @@
+<p>Welcome <%= @email %>!</p>
+
+<p>On behalf of Matt and Andrew at MetaNeer, welcome to the MetaNeer Labs experience. If you have any questions for us, you can reach us at matt@metaneer.com and andrew@metaneer.com.</p>
+
+<p>One quick favor to ask you - please confirm your account email by clicking the link below:</p>
+
+<p><%= link_to 'Confirm my account', confirmation_url(@resource, :confirmation_token => @resource.confirmation_token) %></p>

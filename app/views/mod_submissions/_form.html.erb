@@ -1,0 +1,100 @@
+<%= form_for @mod_submission, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :tile_image, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :tile_image, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :module_name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :module_name, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :module_developer, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :module_developer, :class => 'text_field' %>
+    </div>
+  </div>
+  <hr>
+  <div class="control-group">
+    <%= f.label :iOS, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.check_box :iOS, :class => 'check_box' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :openURL, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :openURL, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :iTunes_ID, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :iTunes_ID, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :Download_URL, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :Download_URL, :class => 'text_field' %>
+    </div>
+  </div>
+  <hr>
+  <div class="control-group">
+    <%= f.label :mobile_web, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.check_box :mobile_web, :class => 'check_box' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :url, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :url, :class => 'text_field' %>
+    </div>
+  </div>
+  <hr>
+  <div class="control-group">
+    <%= f.label :phone, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.check_box :phone, :class => 'check_box' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :tablet, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.check_box :tablet, :class => 'check_box' %>
+    </div>
+  </div>
+  <hr>
+  <div class="control-group">
+    <%= f.label "In 2-3 sentences, describe the core functionality of the app", :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :core_functionality, :class => 'text_area' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label "In 2-3 sentences, describe why your suggestion should be included in the app", :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :why_should_this_module_be_included, :class => 'text_area' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label "Use this area to record any other information that may be helpful to the reviewer of your submission", :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :other_information, :class => 'text_area' %>
+    </div>
+  </div>
+<hr>
+  <div class="control-group">
+    <%= f.label "Your email address", :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :your_email, :class => 'text_field' %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit "Submit For Review", :class => 'btn btn-primary' %>
+  </div>
+<% end %>

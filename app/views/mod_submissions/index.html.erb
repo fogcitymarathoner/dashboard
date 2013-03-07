@@ -1,0 +1,64 @@
+<%- model_class = ModSubmission -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:tile_image) %></th>
+      <th><%= model_class.human_attribute_name(:module_name) %></th>
+      <th><%= model_class.human_attribute_name(:module_developer) %></th>
+      <th><%= model_class.human_attribute_name(:iOS) %></th>
+      <th><%= model_class.human_attribute_name(:openURL) %></th>
+      <th><%= model_class.human_attribute_name(:iTunes_ID) %></th>
+      <th><%= model_class.human_attribute_name(:Download_URL) %></th>
+      <th><%= model_class.human_attribute_name(:mobile_web) %></th>
+      <th><%= model_class.human_attribute_name(:url) %></th>
+      <th><%= model_class.human_attribute_name(:phone) %></th>
+      <th><%= model_class.human_attribute_name(:tablet) %></th>
+      <th><%= model_class.human_attribute_name(:core_functionality) %></th>
+      <th><%= model_class.human_attribute_name(:why_should_this_module_be_included) %></th>
+      <th><%= model_class.human_attribute_name(:other_information) %></th>
+      <th><%= model_class.human_attribute_name(:your_email) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @mod_submissions.each do |mod_submission| %>
+      <tr>
+        <td><%= link_to mod_submission.id, mod_submission_path(mod_submission) %></td>
+        <td><%= mod_submission.tile_image %></td>
+        <td><%= mod_submission.module_name %></td>
+        <td><%= mod_submission.module_developer %></td>
+        <td><%= mod_submission.iOS %></td>
+        <td><%= mod_submission.openURL %></td>
+        <td><%= mod_submission.iTunes_ID %></td>
+        <td><%= mod_submission.Download_URL %></td>
+        <td><%= mod_submission.mobile_web %></td>
+        <td><%= mod_submission.url %></td>
+        <td><%= mod_submission.phone %></td>
+        <td><%= mod_submission.tablet %></td>
+        <td><%= mod_submission.core_functionality %></td>
+        <td><%= mod_submission.why_should_this_module_be_included %></td>
+        <td><%= mod_submission.other_information %></td>
+        <td><%= mod_submission.your_email %></td>
+        <td><%=l mod_submission.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_mod_submission_path(mod_submission), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      mod_submission_path(mod_submission),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_mod_submission_path,
+            :class => 'btn btn-primary' %>

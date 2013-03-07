@@ -1,0 +1,73 @@
+          <div class="container">
+      
+            <div class="row">
+              
+              
+              <div class="span8 offset2"> 
+                
+                
+                <div class="widget">
+                
+              <div class="widget-header">
+                <i class="icon-bookmark"></i>
+                <h3>Module</h3>
+              </div> <!-- /widget-header -->
+              
+              <div class="widget-content">
+                
+                <%= form_for @mod, :html => { :class => 'form-horizontal' } do |f| %>
+                  <div class="control-group">
+                    <%= f.label 'App Title', :class => 'control-label' %>
+                    <div class="controls">
+                      <%= f.text_field :name, :class => 'text_field' %>
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <%= f.label 'app url (web or ios)', :class => 'control-label' %>
+                    <div class="controls">
+                      <%= f.text_field :mod_ios_url, :class => 'text_field', :label => 'YOYYO' %>
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <%= f.label "Dowload url (iphone only)", :class => 'control-label' %>
+                    <div class="controls">
+                      <%= f.text_field :mod_ios_dl_url, :class => 'text_field' %>
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <%= f.label "Tile image url", :class => 'control-label' %>
+                    <div class="controls">
+                      <%= f.text_field :mod_tile_url, :class => 'text_field' %>
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <%= f.label "type \'1\' for native app  \'2\' for web app", :class => 'control-label' %>
+                    <div class="controls">
+                      <%= f.number_field :mod_default, :class => 'number_field' %>
+                    </div>
+                  </div>
+		  <div class="control-group">
+                    <%= f.label "Page Number type \'1\' through  \'6\' ", :class => 'control-label' %>
+                      <%= f.number_field :mod_page_number, :class => 'number_field' %>
+		</div>
+		  <div class="control-group">
+                    <%= f.label "Position type \'1\' through  \'20\' ", :class => 'control-label' %>
+                      <%= f.number_field :position, :class => 'number_field' %>
+		</div>
+ 
+                  <div class="form-actions">
+                    <%= f.submit nil, :class => 'btn btn-primary' %>
+                    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                                mods_path, :class => 'btn' %>
+                  </div>
+                <% end %>
+              
+              </div> <!-- /widget-content -->
+              
+            </div> <!-- /widget -->
+                  
+          </div> <!-- /span8 offset2 -->
+          
+        </div> <!-- /row -->
+  
+      </div> <!-- /container -->
